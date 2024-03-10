@@ -1,4 +1,4 @@
-Flask==2.3.2
+Flask==3.0.2
 numpy==1.24.3
 opencv_python==4.7.0.72
 paho_mqtt==1.6.1
