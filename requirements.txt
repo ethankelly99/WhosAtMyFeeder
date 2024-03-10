@@ -1,5 +1,5 @@
 Flask==3.0.2
-numpy==1.24.4
+numpy==1.26.4
 opencv_python==4.9.0.80
 paho_mqtt==2.0.0
 PyYAML==6.0.1
