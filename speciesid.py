@@ -108,7 +108,7 @@ def on_message(client, userdata, message):
                 "crop": 1,
                 "quality": 95
             }
-            response = requests.get(snapshot_url, params=params)
+            response = requests.get(snapshot_url, params=params, timeout=60)
             # Check if the request was successful (HTTP status code 200)
             if response.status_code == 200:
                 # Open the image from the response content and convert it to a NumPy array
@@ -226,7 +226,7 @@ def run_mqtt_client():
     print("Starting MQTT client. Connecting to: " + config['frigate']['mqtt_server'], flush=True)
     now = datetime.now()
     current_time = now.strftime("%Y%m%d%H%M%S")
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1, "birdspeciesid" + current_time)
+    client = mqtt.Client("birdspeciesid" + current_time)
     client.on_message = on_message
     client.on_disconnect = on_disconnect
     client.on_connect = on_connect
