@@ -10,6 +10,7 @@ on:
 env:
   GHCR_REGISTRY: ghcr.io
   IMAGE_NAME: whosatmyfeeder
+  DH_ORGANIZATION: ${{ github.repository_owner }}
 
 jobs:
   build-and-push:
@@ -34,7 +35,7 @@ jobs:
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        username: ${{ env.DH_ORGANIZATION }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Extract Docker Metadata
@@ -43,7 +44,7 @@ jobs:
       with:
         images: |
           ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
-          ${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
+          ${{ env.DH_ORGANIZATION }}/${{ env.IMAGE_NAME }}
         tags: |
           type=ref,event=branch
           type=ref,event=tag
