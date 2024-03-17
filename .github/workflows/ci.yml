@@ -13,9 +13,16 @@ env:
   DH_ORGANIZATION: ${{ github.repository_owner }}
 
 jobs:
+  lint:
+    name: Run Lint Check
+    uses: ./.github/workflows/lint.yml
+
   build-and-push:
     name: Build & Push Docker Image
     runs-on: ubuntu-latest
+
+    needs:
+      - lint
 
     permissions:
       contents: read
