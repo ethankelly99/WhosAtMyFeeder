@@ -43,7 +43,7 @@ jobs:
       with:
         images: |
           ${{ env.GHCR_REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
-          ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
+          ${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
         tags: |
           type=ref,event=branch
           type=ref,event=tag
