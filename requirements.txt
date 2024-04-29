@@ -1,7 +1,7 @@
 Flask==3.0.2
 numpy==1.26.4
 opencv_python==4.9.0.80
-paho_mqtt==2.0.0
+paho_mqtt==2.1.0
 PyYAML==6.0.1
 tflite_support==0.4.3
 requests==2.31.0
