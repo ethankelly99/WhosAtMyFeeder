@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12.6
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 COPY requirements.txt .
 RUN pip install -r requirements.txt
